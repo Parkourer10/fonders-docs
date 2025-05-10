@@ -7,25 +7,18 @@ The Dictionary API offers a simple and efficient way to access word definitions,
 To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
 
 ## Endpoints
-### 1. Get Word Definition
-- **Endpoint**: `/api/dictionary/{word}`
+- **Endpoint**: `/dictionary/v1/{word}`
 - **Method**: `GET`
 - **Parameters**:
   - `word` (string, required): The word you want to look up.
-- **Response**:
-    - `definition` (string): The definition of the word.
-    - `partOfSpeech` (string): The part of speech of the word (e.g., noun, verb).
-    - `examples` (array): An array of example sentences (3) using the word.
-
 
 
 ## Example
 
-To use the Dictionary API you can use the following example. This example demonstrates how to fetch the definition of a word from the API
+You can use the following example to use the Dictionary API. This example demonstrates how to fetch the definition of a word from the API
 
 ```javascript copy
-//make a req to the api lol
-fetch("https://dictionary.fonders.org/dictionary/hello")
+fetch("https://api.fonders.org/dictionary/v1/hello")
   .then(response => {
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
@@ -38,4 +31,20 @@ fetch("https://dictionary.fonders.org/dictionary/hello")
   .catch(error => {
     console.error(error);
   });
+```
+
+### Example Function
+```javascript copy
+async function fetchDefinition(word) {
+  try {
+    const res = await fetch(`https://api.fonders.org/dictionary/v1/${encodeURIComponent(word)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+fetchDefinition("hello");
 ```

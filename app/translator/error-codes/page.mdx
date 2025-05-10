@@ -1,0 +1,29 @@
+# Error Codes ❌
+The api may return the following error code:
+- `400 Bad Request`: The request was invalid or cannot be served. This can happen if the source or target language is not supported, not correct or if the request format is incorrect.
+
+## Examples
+
+- This is when the source language is not supported, not correct or if the request format is incorrect.
+```json
+{
+    "error": "400 Bad Request",
+    "message": "Invalid source language."
+}
+```
+
+- This is when the target language is not supported, not correct or if the request format is incorrect.
+```json
+{
+    "error": "400 Bad Request",
+    "message": "Invalid target language."
+}
+```
+
+- This is when the request format is incorrect.
+```json
+{
+    "error": "400 Bad Request",
+    "message": "Invalid request format."
+}
+```

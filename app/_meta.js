@@ -6,6 +6,9 @@ export default {
             breadcrumb: false,
         }
     },
+    '---': {
+        type: 'separator'
+    },
     'dictionary': {
         title: 'Dictionary API📓',
         theme: {
@@ -13,5 +16,11 @@ export default {
             breadcrumb: false,
         }
     },
-
+    'translator': {
+        title: 'Translator API 🌐',
+        theme: {
+            timestamp: false,
+            breadcrumb: false,
+        }
+    },
 }

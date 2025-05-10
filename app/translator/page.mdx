@@ -1,0 +1,77 @@
+# API Documentation 👨‍💻
+## Overview
+The translator API offers a simple and efficent way to translate text between different languages. It is designed to be user-friendly and easy to integrate into your applications.
+
+
+## Rate Limiting
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
+
+## Endpoints
+- **Endpoint**: `/translator/v1/{src_lang}-{tgt_lang}/{text}`
+- **Method**: `GET`
+- **Parameters**:
+  - `src_lang` (string, required): The source language code (e.g., `en` for English).
+  - `tgt_lang` (string, required): The target language code (e.g., `es` for Spanish).
+  - `text` (string, required): The text you want to translate.
+
+
+## Example
+
+You can use the following example to use the Translator API. This example demonstrates how to translate text from English to Spanish using the API.
+
+```javascript copy
+fetch("https://api.fonders.org/translator/v1/en-es/hello%20how%20are%20you")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+### Example Function
+```javascript copy
+async function translateText(from, to, text) {
+  try {
+    const url = `https://api.fonders.org/translator/v1/${from}-${to}/${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+//en - source language
+//es - target language
+//hello how are you - text to translate
+//example usage:
+translateText("en", "es", "hello how are you");
+```
+
+---
+
+### Limitations
+- The API may not support all languages or dialects.
+- The translation quality may vary depending on the language pair and the complexity of the text.
+- The API is slow, so please be patient while waiting for the response.
+- The API may not handle very large texts efficiently. It is recommended to break down larger texts into smaller segments for better performance.
+- The API may not support all special characters or formatting. It is recommended to use plain text for best results.
+
+### Powered by
+
+[![Powered by NLLB by Meta AI](https://img.shields.io/badge/Powered%20by-NLLB%20by%20Meta%20AI-blue?logo=meta)](https://ai.meta.com/research/no-language-left-behind/)
+
+```bibtex
+@article{nllb2022,
+  author    = {NLLB Team, Marta R. Costa-jussà, James Cross, Onur Çelebi, Maha Elbayad, Kenneth Heafield, Kevin Heffernan, Elahe Kalbassi,  Janice Lam, Daniel Licht, Jean Maillard, Anna Sun, Skyler Wang, Guillaume Wenzek, Al Youngblood, Bapi Akula, Loic Barrault, Gabriel Mejia Gonzalez, Prangthip Hansanti, John Hoffman, Semarley Jarrett, Kaushik Ram Sadagopan, Dirk Rowe, Shannon Spruit, Chau Tran, Pierre Andrews, Necip Fazil Ayan, Shruti Bhosale, Sergey Edunov, Angela Fan, Cynthia Gao, Vedanuj Goswami, Francisco Guzmán, Philipp Koehn, Alexandre Mourachko, Christophe Ropers, Safiyyah Saleem, Holger Schwenk, Jeff Wang},
+  title     = {No Language Left Behind: Scaling Human-Centered Machine Translation},
+  year      = {2022}
+}
+```
