@@ -1,6 +1,10 @@
-# Dictionary API Documentation
+# API Documentation 👨‍💻
 ## Overview
 The Dictionary API offers a simple and efficient way to access word definitions, synonyms, antonyms, and parts of speech. It is designed to be user-friendly and easy to integrate into your applications.
+
+
+## Rate Limiting
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
 
 ## Endpoints
 ### 1. Get Word Definition
@@ -17,9 +21,9 @@ The Dictionary API offers a simple and efficient way to access word definitions,
 
 ## Example
 
-To see the Dictionary API in action, you can use the following example. This example demonstrates how to fetch the definition of a word from the API
+To use the Dictionary API you can use the following example. This example demonstrates how to fetch the definition of a word from the API
 
-```javascript
+```javascript copy
 //make a req to the api lol
 fetch("https://dictionary.fonders.org/dictionary/hello")
   .then(response => {
@@ -35,4 +39,3 @@ fetch("https://dictionary.fonders.org/dictionary/hello")
     console.error(error);
   });
 ```
-

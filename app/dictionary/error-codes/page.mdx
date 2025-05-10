@@ -1,0 +1,47 @@
+# Error Codes ❌
+The api may return the following error codes:
+- `400 Bad Request`: The request was invalid or cannot be served. This can happen if the word is not found or if the request format is incorrect.
+- `404 Not Found`: The requested resource could not be found. This can happen if the word does not exist in the dictionary.
+- `500 Internal Server Error`: An unexpected error occurred on the server. Please try again later.
+- `429 Too Many Requests`: You have exceeded the rate limit for requests. Please wait and try again later.
+
+## 400 Bad Request
+The request was invalid or cannot be served. This can happen if the word is not found or if the request format is incorrect.
+- **Example**:
+```json
+{
+  "error": "400 Bad Request",
+  "message": "The request was invalid or cannot be served."
+}
+```
+
+## 404 Not Found
+The requested word could not be found. This can happen if the word does not exist in the dictionary.
+- **Example**:
+```json
+{
+  "error": "404 Not Found",
+  "message": "Word not found!"
+}
+```
+
+## 500 Internal Server Error
+An unexpected error occurred on the server. Please try again later.
+- **Example**:
+```json
+{
+  "error": "500 Internal Server Error",
+  "message": "An unexpected error occurred on the server."
+}
+```
+
+## 429 Too Many Requests
+You have exceeded the rate limit for requests. Please wait and try again later.
+- **Example**:
+```json
+{
+  "error": "429 Too Many Requests",
+  "message": "You have exceeded the rate limit for requests."
+}
+```
+

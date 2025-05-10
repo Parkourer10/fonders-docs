@@ -7,11 +7,11 @@ export default {
         }
     },
     'dictionary': {
-        title: 'Dictionary 📓',
+        title: 'Dictionary API📓',
         theme: {
             timestamp: false,
             breadcrumb: false,
         }
-    }
+    },
 
 }

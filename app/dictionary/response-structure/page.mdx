@@ -1,0 +1,33 @@
+# Response Structure 📰
+The response structure for the Dictionary API is designed to be simple and easy to understand. Below is the structure of the response you can expect when you make a request to the API.
+
+Here's an example of a successful response when looking up a word:
+```json
+{
+  "word": "example",
+  "language": "English",
+  "entries": [
+    {
+      "part_of_speech": "noun",
+      "definitions": [
+        {
+          "text": "Something that is representative of all such things in a group."
+        },
+        //..
+      ]
+    },
+    {
+      "part_of_speech": "verb",
+      "definitions": [
+        {
+          "text": "To be illustrated or exemplified (by)."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    "Plant breeding is always a numbers game.[…]The wild species we use are rich in genetic variation, […]. In addition, we are looking for rare alleles, so the more plants we try, the better. These rarities may be new mutations, or they can be existing ones that are neutral—or are even selected against—in a wild population. A good example is mutations that disrupt seed dispersal, leaving the seeds on the heads long after they are ripe.",
+    //..
+  ]
+}
+```
