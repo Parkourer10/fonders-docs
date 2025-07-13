@@ -1,0 +1,31 @@
+# Endpoints
+
+- **Endpoint**: `/search/v1`
+- **Method**: `GET`
+- **Description**: Performs a search query using a mix of semantic and keyword-based scoring.
+- **Parameters**:
+  - `q` (string, required): The search query string.
+  - `semantic` (float, optional): Weight given to semantic relevance (LLM embeddings). Default is `0.7`.
+  - `kw` (float, optional): Weight given to keyword match. Default is `0.3`.
+
+#### Explanation
+https://api.fonders.org/search/v1?q=<THE QUERY>&semantic=<VALUE BETWEEN 0.1 AND 1>&kw=<WEIGHT>
+
+### Example
+```bash
+https://api.fonders.org/search/v1?q=example+query&semantic=0.7&kw=0.3
+```
+
+> While semantic and kw should sum to approximately 1.0 for best results, it’s not enforced as it will be scalled down to 1.0 if it exceeds.
+
+## Second Endpoint
+- **Endpoint**: `/search/v1/`
+- **Method**: `GET`
+- **Description**: Performs a search query using a query string.
+- **Parameters**:
+  - `q` (string, required): The search query string.
+- **Example**:
+```bash
+https://api.fonders.org/search/v1/example+query
+```
+> The second endpoint is a simplified version of the first, allowing you to perform a search without specifying semantic and keyword weights. It defaults to the standard weights of `0.7` for semantic relevance and `0.3` for keyword match.

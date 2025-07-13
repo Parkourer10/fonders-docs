@@ -10,17 +10,24 @@ export default {
         type: 'separator'
     },
     'dictionary': {
-        title: 'Dictionary API📓',
+        title: 'Dictionary API',
         theme: {
             timestamp: false,
             breadcrumb: false,
         }
     },
     'translator': {
-        title: 'Translator API 🌐',
+        title: 'Translator API',
         theme: {
             timestamp: false,
             breadcrumb: false,
         }
     },
+    'search': {
+        title: 'Search API',
+        theme: {
+            timestamp: false,
+            breadcrumb: false
+        }
+    }
 }

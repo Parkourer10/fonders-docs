@@ -9,13 +9,13 @@ export const metadata = {
 
 }
  
-const banner = <Banner storageKey="key-some">The API Dashboard has been released 🎉🎉</Banner>
+const banner = <Banner storageKey="key-some">Dashboard has been released 🎉🎉</Banner>
 const navbar = (
   <Navbar
     logo={<b>API Documentation</b>}
     logoLink="https://fonders.org"
-    chatLink='https://discord.gg/85mEBmq8bY'
-    projectLink="https://github.com/fonderdevs"
+    chatLink='https://discord.gg/wsvQwcJp'
+    projectLink="https://github.com/Parkourer10"
   />
 )
 const footer = <Footer>{new Date().getFullYear()} © Fonders</Footer>

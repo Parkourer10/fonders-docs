@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "PORT=8002 next start",
+    "start": "PORT=50002 next start",
     "lint": "next lint",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "easy": "next build &&pagefind --site out --output-path out/_pagefind"

@@ -2,6 +2,7 @@
 ## Overview
 The Dictionary API offers a simple and efficient way to access word definitions, synonyms, antonyms, and parts of speech. It is designed to be user-friendly and easy to integrate into your applications.
 
+
 ## Authentication
 To use the Dictionary API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org)
 Please include a X-API-KEY header in your request or use our SDK's (coming soon!)
@@ -18,13 +19,10 @@ To ensure fair usage of our API, we have implemented rate limiting. Each user is
 
 ## Example
 
+You can use the following example to use the Dictionary API. This example demonstrates how to fetch the definition of a word from the API
+
 ```javascript copy
-fetch("https://api.fonders.org/dictionary/v1/hello", {
-  method: 'GET',
-  headers: {
-    'X-API-KEY': 'fonders-xxxx'
-  }
-})
+fetch("https://api.fonders.org/dictionary/v1/hello")
   .then(response => {
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
@@ -37,4 +35,20 @@ fetch("https://api.fonders.org/dictionary/v1/hello", {
   .catch(error => {
     console.error(error);
   });
+```
+
+### Example Function
+```javascript copy
+async function fetchDefinition(word) {
+  try {
+    const res = await fetch(`https://api.fonders.org/dictionary/v1/${encodeURIComponent(word)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+fetchDefinition("hello");
 ```

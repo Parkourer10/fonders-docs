@@ -1,0 +1,18 @@
+# Error codes
+These are the error codes that can be returned by the search API and how to counter them.
+
+## 400 Bad Request
+- **Description**: The request was invalid or cannot be served. This can happen if required parameters are missing or if the request format is incorrect.
+- **Solution**: Check your request parameters and ensure that all required fields are included and correctly formatted. Refer to the API documentation for the correct request structure.
+
+## 401 Unauthorized
+- **Description**: The request requires user authentication. This error occurs when the API key is missing, invalid, or expired.
+- **Solution**: Ensure that you are including a valid API key in the `X-API-KEY` header of your request. If you do not have an API key, you can obtain one by signing up on our [dashboard](https://dashboard.fonders.org).
+
+## 403 Forbidden
+- **Description**: The server understood the request, but refuses to authorize it. This can happen if your API key does not have the necessary permissions or if you are trying to access a resource that is restricted.
+- **Solution**: Check your API key permissions and ensure that you are authorized to access the requested resource. If you believe this is an error, contact support for assistance.
+
+## 500 Internal Server Error
+- **Description**: An unexpected error occurred on the server while processing the request. This is a generic error message indicating that something went wrong on the server side. This means that we fucked up
+- **Solution**: If you encounter this error, please try your request again later. If the problem persists, contact our support team with details of your request so we can investigate the issue.

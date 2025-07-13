@@ -9,7 +9,7 @@ export const metadata = {
 
 }
  
-const banner = <Banner storageKey="key-some">The API Dashboard has been released 🎉🎉</Banner>
+const banner = <Banner storageKey="key-some">Dashboard has been released 🎉🎉</Banner>
 const navbar = (
   <Navbar
     logo={<b>API Documentation</b>}

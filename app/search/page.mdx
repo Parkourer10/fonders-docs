@@ -1,0 +1,21 @@
+# Search API 
+## Overview
+The Search API provides a way to search the web for information, allowing users to retrieve relevant results based on their queries. It is designed to be efficient and easy to use, making it suitable for various applications.
+
+Our documentation will guide you through the process of using the Search API, including how to authenticate, make requests, and handle responses.
+We will be happy to see the uses of this API in your applications, so please share your feedback and suggestions with us.
+
+## Rate Limiting
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
+
+## Authentication
+To use the Search API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org).
+Please include a `X-API-KEY` header in your request or use our SDKs (coming soon!).
+
+## Base URL
+The base URL for the Search API is:
+```
+https://api.fonders.org/search/
+```
+## Support
+if you have any questions or need assistance in using our Search API, please feel free to reach out to us via our [Discord server](https://discord.gg/85mEBmq8bY)

@@ -1,0 +1,50 @@
+# API Documentation 👨‍💻
+## Overview
+The Dictionary API offers a simple and efficient way to access word definitions, synonyms, antonyms, and parts of speech. It is designed to be user-friendly and easy to integrate into your applications.
+
+
+## Rate Limiting
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
+
+## Endpoints
+- **Endpoint**: `/dictionary/v1/{word}`
+- **Method**: `GET`
+- **Parameters**:
+  - `word` (string, required): The word you want to look up.
+
+
+## Example
+
+You can use the following example to use the Dictionary API. This example demonstrates how to fetch the definition of a word from the API
+
+```javascript copy
+fetch("https://api.fonders.org/dictionary/v1/hello")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+### Example Function
+```javascript copy
+async function fetchDefinition(word) {
+  try {
+    const res = await fetch(`https://api.fonders.org/dictionary/v1/${encodeURIComponent(word)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+fetchDefinition("hello");
+```

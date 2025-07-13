@@ -1,0 +1,30 @@
+# Getting Started
+
+Welcome to our documentation! This guide will help you get started with our API and provide you with the necessary information to make the most out of it.
+
+## API URL
+
+All endpoints are served over HTTPS:
+
+```bash
+https://api.fonders.org
+```
+
+## Authentication
+
+To use the Dictionary API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org) and obtaining an API key
+
+## Rate Limiting
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response.
+This limit is subject to change, so please check our documentation for the latest information.
+
+## Error Handling
+In case of an error, our API will return a JSON response with the following structure:
+
+```json
+{
+  "error": "ERROR_CODE",
+  "message": "Error message describing the issue."
+}
+```
+

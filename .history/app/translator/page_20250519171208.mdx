@@ -6,10 +6,6 @@ The translator API offers a simple and efficent way to translate text between di
 ## Rate Limiting
 To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
 
-## Authentication
-To use the Translation API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org)
-Please include a X-API-KEY header in your request or use our SDK's (coming soon!)
-
 ## Endpoints
 - **Endpoint**: `/translator/v1/{src_lang}-{tgt_lang}/{text}`
 - **Method**: `GET`

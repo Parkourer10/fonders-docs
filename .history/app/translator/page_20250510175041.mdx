@@ -6,10 +6,6 @@ The translator API offers a simple and efficent way to translate text between di
 ## Rate Limiting
 To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response. This limit is subject to change, so please check our documentation for the latest information.
 
-## Authentication
-To use the Translation API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org)
-Please include a X-API-KEY header in your request or use our SDK's (coming soon!)
-
 ## Endpoints
 - **Endpoint**: `/translator/v1/{src_lang}-{tgt_lang}/{text}`
 - **Method**: `GET`
@@ -24,11 +20,7 @@ Please include a X-API-KEY header in your request or use our SDK's (coming soon!
 You can use the following example to use the Translator API. This example demonstrates how to translate text from English to Spanish using the API.
 
 ```javascript copy
-fetch("https://api.fonders.org/translator/v1/en-es/hello%20how%20are%20you", {
-  headers: {
-    'X-API-KEY': 'fonders-xxxx'
-  }
-})
+fetch("https://api.fonders.org/translator/v1/en-es/hello%20how%20are%20you")
   .then(response => {
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
@@ -42,6 +34,27 @@ fetch("https://api.fonders.org/translator/v1/en-es/hello%20how%20are%20you", {
     console.error(error);
   });
 ```
+
+### Example Function
+```javascript copy
+async function translateText(from, to, text) {
+  try {
+    const url = `https://api.fonders.org/translator/v1/${from}-${to}/${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+//en - source language
+//es - target language
+//hello how are you - text to translate
+//example usage:
+translateText("en", "es", "hello how are you");
+```
+
 ---
 
 ### Limitations

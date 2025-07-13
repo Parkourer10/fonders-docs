@@ -12,12 +12,10 @@ https://api.fonders.org
 
 ## Authentication
 
-To use our APIs, users must authenticate with a valid API key. You can obtain your personal API key by signing in to our [dashboard](https://dashboard.fonders.org)
-Please make sure you keep your API key safe and dont share it with anyone!
-
+To use the Dictionary API, users must authenticate with a valid API key. You can obtain your personal API key by signing in to t
 ## Rate Limiting
-To ensure fair usage of our API, we have implemented rate limiting. If you exceed this limit, you will receive a `429 Too Many Requests` response.
-This limit is subject to change, so please check our documentation for each API for the latest information.
+To ensure fair usage of our API, we have implemented rate limiting. Each user is allowed a maximum of 100 requests per minute. If you exceed this limit, you will receive a `429 Too Many Requests` response.
+This limit is subject to change, so please check our documentation for the latest information.
 
 ## Error Handling
 In case of an error, our API will return a JSON response with the following structure:
